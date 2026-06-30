@@ -825,7 +825,7 @@
             <option value="exact">Termo exato</option>
             <option value="coincident">Termo coincidente</option>
           </select>
-          <div class="hint">Exato respeita acentos e busca a frase digitada. Coincidente ignora acentos e busca palavras do termo.</div>
+          <div class="hint">Exato respeita acentos e busca o termo inteiro. Coincidente ignora acentos e busca palavras do termo.</div>
         </div>
 
         <div class="field-search">
@@ -946,6 +946,19 @@
 
     function escapeRegExp(text) {
       return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    }
+
+    function buildExactTermRegex(term) {
+      const clean = exactTextKey(term);
+      if (!clean) return null;
+      const escaped = escapeRegExp(clean).replace(/\s+/g, "\\s+");
+      return new RegExp("(^|[^\\p{L}\\p{N}_])(" + escaped + ")(?=$|[^\\p{L}\\p{N}_])", "gu");
+    }
+
+    function hasExactTerm(text, term) {
+      const regex = buildExactTermRegex(term);
+      if (!regex) return true;
+      return regex.test(exactTextKey(text));
     }
 
     function escapeHTML(value) {
@@ -1186,7 +1199,7 @@
         if (verseSet && !verseSet.has(row.ver)) return false;
         if (rawSearch) {
           if (searchType === "exact") {
-            if (!row.textoExactKey.includes(exactSearch)) return false;
+            if (!hasExactTerm(row.texto, rawSearch)) return false;
           } else if (!searchTokens.every(token => row.textoKey.includes(token))) {
             return false;
           }
@@ -1197,23 +1210,45 @@
 
     function highlightSearch(text) {
       const query = el.searchInput.value.trim();
-      let safeText = escapeHTML(text);
-      if (!query) return safeText;
+      const original = String(text ?? "");
+      if (!query) return escapeHTML(original);
 
-      const terms = el.searchTypeSelect.value === "coincident"
-        ? query.split(/\s+/).map(t => t.trim()).filter(Boolean)
-        : [query];
-
-      for (const term of terms) {
-        const escaped = escapeRegExp(escapeHTML(term));
-        if (!escaped) continue;
-        try {
-          safeText = safeText.replace(new RegExp("(" + escaped + ")", "gi"), '<span class="highlight">$1</span>');
-        } catch {
-          continue;
+      if (el.searchTypeSelect.value === "coincident") {
+        let safeText = escapeHTML(original);
+        const terms = query.split(/\s+/).map(t => t.trim()).filter(Boolean);
+        for (const term of terms) {
+          const escaped = escapeRegExp(escapeHTML(term));
+          if (!escaped) continue;
+          try {
+            safeText = safeText.replace(new RegExp("(" + escaped + ")", "gi"), '<span class="highlight">$1</span>');
+          } catch {
+            continue;
+          }
         }
+        return safeText;
       }
-      return safeText;
+
+      const regex = buildExactTermRegex(query);
+      if (!regex) return escapeHTML(original);
+
+      const lowerOriginal = exactTextKey(original);
+      let result = "";
+      let lastIndex = 0;
+      let match;
+
+      while ((match = regex.exec(lowerOriginal)) !== null) {
+        const start = match.index + match[1].length;
+        const end = start + match[2].length;
+
+        result += escapeHTML(original.slice(lastIndex, start));
+        result += '<span class="highlight">' + escapeHTML(original.slice(start, end)) + '</span>';
+        lastIndex = end;
+
+        if (regex.lastIndex === match.index) regex.lastIndex++;
+      }
+
+      result += escapeHTML(original.slice(lastIndex));
+      return result;
     }
 
     function setSearching(isSearching, message = "Buscando...") {
