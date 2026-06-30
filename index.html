@@ -251,6 +251,41 @@
       border: 1px solid #fecdd3;
     }
 
+
+    .search-feedback {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      margin-top: 14px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      color: #9a3412;
+      font-size: .82rem;
+      font-weight: 700;
+      box-shadow: 0 10px 24px rgba(154, 52, 18, .10);
+    }
+
+    .search-feedback.is-visible {
+      display: inline-flex;
+    }
+
+    .mini-spinner {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 2px solid rgba(154, 52, 18, .22);
+      border-top-color: #9a3412;
+      animation: spin .75s linear infinite;
+      flex: 0 0 auto;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
     .summary-bar {
       display: flex;
       gap: 10px;
@@ -532,6 +567,15 @@
         font-size: var(--verse-font-mobile, 1.12rem);
       }
     }
+  
+    @media (max-width: 640px) {
+      .search-feedback.is-visible {
+        position: sticky;
+        bottom: 10px;
+        z-index: 15;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -602,6 +646,11 @@
           <button class="btn btn-clear" id="clearBtn" type="button">Limpar</button>
         </div>
       </div>
+
+      <div class="search-feedback" id="searchStatus" aria-live="polite" hidden>
+        <span class="mini-spinner" aria-hidden="true"></span>
+        <span>Buscando...</span>
+      </div>
     </section>
 
     <section class="info-card" aria-label="Informativo da base bíblica">
@@ -648,6 +697,10 @@
       rows: [],
       books: [],
       bookIndex: new Map(),
+      rowsByBook: new Map(),
+      chaptersByBook: new Map(),
+      renderToken: 0,
+      searchTimer: null,
       fontScale: 1
     };
 
@@ -674,6 +727,7 @@
       statFilteredBooks: document.getElementById("statFilteredBooks"),
       statFilteredChapters: document.getElementById("statFilteredChapters"),
       statFilteredVerses: document.getElementById("statFilteredVerses"),
+      searchStatus: document.getElementById("searchStatus"),
       fontMinus: document.getElementById("fontMinus"),
       fontPlus: document.getElementById("fontPlus")
     };
@@ -688,6 +742,16 @@
 
     function escapeRegExp(text) {
       return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    }
+
+    function escapeHTML(value) {
+      return String(value ?? "").replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        "\"": "&quot;",
+        "'": "&#039;"
+      }[char]));
     }
 
     function stripLeadingVerseNumber(text, verse) {
@@ -776,10 +840,24 @@
         state.rows = parsed;
         state.books = [...new Map(parsed.map(r => [r.livro, r.livro])).values()];
         state.bookIndex = new Map(state.books.map((book, index) => [book, index]));
+        state.rowsByBook = new Map();
+        state.chaptersByBook = new Map();
+
+        for (const row of parsed) {
+          if (!state.rowsByBook.has(row.livro)) state.rowsByBook.set(row.livro, []);
+          state.rowsByBook.get(row.livro).push(row);
+
+          if (!state.chaptersByBook.has(row.livro)) state.chaptersByBook.set(row.livro, new Set());
+          state.chaptersByBook.get(row.livro).add(row.cap);
+        }
+
+        for (const [book, chapters] of state.chaptersByBook) {
+          state.chaptersByBook.set(book, [...chapters].sort((a, b) => a - b));
+        }
 
         setProgress(100);
         populateBooks();
-        render();
+        render({ immediate: true });
         setTimeout(() => el.loader.style.display = "none", 250);
       } catch (error) {
         el.loaderError.style.display = "block";
@@ -831,7 +909,7 @@
         return;
       }
 
-      const chapters = [...new Set(state.rows.filter(r => r.livro === book).map(r => r.cap))].sort((a,b) => a-b);
+      const chapters = state.chaptersByBook.get(book) || [];
 
       for (const chapter of chapters) {
         const option = document.createElement("option");
@@ -869,18 +947,33 @@
       return allowed.size ? allowed : null;
     }
 
+    function getCandidateRows(scope, book) {
+      if (book) return state.rowsByBook.get(book) || [];
+
+      const allowedBooks = getScopeBooks(scope);
+      if (scope === "all") return state.rows;
+
+      const scopedRows = [];
+      for (const allowedBook of allowedBooks) {
+        const rows = state.rowsByBook.get(allowedBook);
+        if (rows) scopedRows.push(...rows);
+      }
+      return scopedRows;
+    }
+
     function getFilteredRows() {
       const scope = el.scopeSelect.value;
       const allowedBooks = new Set(getScopeBooks(scope));
       const book = el.bookSelect.value;
-      const chapter = Number(el.chapterSelect.value);
+      const chapterRaw = el.chapterSelect.value;
+      const chapter = chapterRaw ? Number(chapterRaw) : null;
       const verseSet = parseVerseFilter(el.verseInput.value);
       const search = normalizeText(el.searchInput.value);
+      const candidates = getCandidateRows(scope, book);
 
-      return state.rows.filter(row => {
-        if (!allowedBooks.has(row.livro)) return false;
-        if (book && row.livro !== book) return false;
-        if (Number.isFinite(chapter) && chapter > 0 && row.cap !== chapter) return false;
+      return candidates.filter(row => {
+        if (!book && !allowedBooks.has(row.livro)) return false;
+        if (chapter && row.cap !== chapter) return false;
         if (verseSet && !verseSet.has(row.ver)) return false;
         if (search && !row.textoKey.includes(search)) return false;
         return true;
@@ -889,14 +982,37 @@
 
     function highlightSearch(text) {
       const query = el.searchInput.value.trim();
-      if (!query) return text;
+      const safeText = escapeHTML(text);
+      if (!query) return safeText;
 
-      const escaped = escapeRegExp(query);
+      const escaped = escapeRegExp(escapeHTML(query));
       try {
-        return text.replace(new RegExp("(" + escaped + ")", "gi"), '<span class="highlight">$1</span>');
+        return safeText.replace(new RegExp("(" + escaped + ")", "gi"), '<span class="highlight">$1</span>');
       } catch {
-        return text;
+        return safeText;
       }
+    }
+
+    function setSearching(isSearching, message = "Buscando...") {
+      if (!el.searchStatus) return;
+
+      el.searchStatus.hidden = !isSearching;
+      el.searchStatus.classList.toggle("is-visible", isSearching);
+
+      const label = el.searchStatus.querySelector("span:last-child");
+      if (label) label.textContent = message;
+    }
+
+    function scheduleRender(options = {}) {
+      if (!state.rows.length) return;
+
+      setSearching(true, options.message || "Buscando...");
+      clearTimeout(state.searchTimer);
+
+      const delay = options.immediate ? 0 : (options.delay ?? 220);
+      state.searchTimer = setTimeout(() => {
+        requestAnimationFrame(() => render(options));
+      }, delay);
     }
 
     function updateInfoStats(rows) {
@@ -914,8 +1030,11 @@
       el.statFilteredVerses.textContent = filteredRows.length.toLocaleString("pt-BR");
     }
 
-    function render() {
+    function render(options = {}) {
       if (!state.rows.length) return;
+
+      const token = ++state.renderToken;
+      setSearching(true, options.message || "Buscando...");
 
       const rows = getFilteredRows();
       updateInfoStats(rows);
@@ -931,45 +1050,66 @@
 
       if (!rows.length) {
         el.results.innerHTML = `<div class="empty"><strong>Nenhum resultado encontrado.</strong>Revise o livro, capítulo, versículo ou termo pesquisado.</div>`;
+        setSearching(false);
         return;
       }
 
-      const frag = document.createDocumentFragment();
+      let i = 0;
       let currentBook = null;
       let currentChapter = null;
       let bookBlock = null;
+      const batchSize = rows.length > 5000 ? 320 : 700;
 
-      for (const row of rows) {
-        if (row.livro !== currentBook) {
-          currentBook = row.livro;
-          currentChapter = null;
+      function appendBatch() {
+        if (token !== state.renderToken) return;
 
-          bookBlock = document.createElement("article");
-          bookBlock.className = "book-block";
+        const frag = document.createDocumentFragment();
+        const limit = Math.min(i + batchSize, rows.length);
 
-          const hBook = document.createElement("h2");
-          hBook.className = "book-title";
-          hBook.textContent = row.livro;
-          bookBlock.appendChild(hBook);
-          frag.appendChild(bookBlock);
+        for (; i < limit; i++) {
+          const row = rows[i];
+
+          if (row.livro !== currentBook) {
+            currentBook = row.livro;
+            currentChapter = null;
+
+            bookBlock = document.createElement("article");
+            bookBlock.className = "book-block";
+
+            const hBook = document.createElement("h2");
+            hBook.className = "book-title";
+            hBook.textContent = row.livro;
+            bookBlock.appendChild(hBook);
+            frag.appendChild(bookBlock);
+          }
+
+          if (row.cap !== currentChapter) {
+            currentChapter = row.cap;
+            const hCap = document.createElement("h3");
+            hCap.className = "chapter-title";
+            hCap.textContent = "Capítulo " + row.cap;
+            bookBlock.appendChild(hCap);
+          }
+
+          const p = document.createElement("p");
+          p.className = "verse";
+          const clean = stripLeadingVerseNumber(row.texto, row.ver);
+          p.innerHTML = `<sup class="verse-num">${row.ver}</sup>${highlightSearch(clean)}`;
+          bookBlock.appendChild(p);
         }
 
-        if (row.cap !== currentChapter) {
-          currentChapter = row.cap;
-          const hCap = document.createElement("h3");
-          hCap.className = "chapter-title";
-          hCap.textContent = "Capítulo " + row.cap;
-          bookBlock.appendChild(hCap);
+        el.results.appendChild(frag);
+
+        if (i < rows.length) {
+          requestAnimationFrame(appendBatch);
+          return;
         }
 
-        const p = document.createElement("p");
-        p.className = "verse";
-        const clean = stripLeadingVerseNumber(row.texto, row.ver);
-        p.innerHTML = `<sup class="verse-num">${row.ver}</sup>${highlightSearch(clean)}`;
-        bookBlock.appendChild(p);
+        if (options.scrollToTop) el.results.scrollTop = 0;
+        setSearching(false);
       }
 
-      el.results.appendChild(frag);
+      requestAnimationFrame(appendBatch);
     }
 
     function clearFilters() {
@@ -979,8 +1119,7 @@
       el.verseInput.value = "";
       el.searchInput.value = "";
       populateBooks();
-      render();
-      el.results.scrollTop = 0;
+      scheduleRender({ immediate: true, scrollToTop: true, message: "Limpando filtros..." });
     }
 
     function updateFont(delta) {
@@ -991,25 +1130,22 @@
 
     el.scopeSelect.addEventListener("change", () => {
       populateBooks();
-      render();
-      el.results.scrollTop = 0;
+      scheduleRender({ immediate: true, scrollToTop: true });
     });
 
     el.bookSelect.addEventListener("change", () => {
       populateChapters();
-      render();
-      el.results.scrollTop = 0;
+      scheduleRender({ immediate: true, scrollToTop: true });
     });
 
     el.chapterSelect.addEventListener("change", () => {
       el.verseInput.disabled = !el.chapterSelect.value;
       if (!el.chapterSelect.value) el.verseInput.value = "";
-      render();
-      el.results.scrollTop = 0;
+      scheduleRender({ immediate: true, scrollToTop: true });
     });
 
-    el.verseInput.addEventListener("input", render);
-    el.searchInput.addEventListener("input", render);
+    el.verseInput.addEventListener("input", () => scheduleRender({ delay: 180 }));
+    el.searchInput.addEventListener("input", () => scheduleRender({ delay: 260 }));
     el.clearBtn.addEventListener("click", clearFilters);
     el.fontMinus.addEventListener("click", () => updateFont(-0.08));
     el.fontPlus.addEventListener("click", () => updateFont(0.08));
