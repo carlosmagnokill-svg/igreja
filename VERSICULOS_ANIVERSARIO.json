@@ -1,0 +1,2562 @@
+[
+  {
+    "id": 1,
+    "livro": "Números",
+    "capitulo": 6,
+    "versiculos": "24-26",
+    "tema": "Benção",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 2,
+    "livro": "Deuteronômio",
+    "capitulo": 31,
+    "versiculos": "6",
+    "tema": "Encorajamento",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 3,
+    "livro": "Deuteronômio",
+    "capitulo": 31,
+    "versiculos": "8",
+    "tema": "Presença de Deus",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 4,
+    "livro": "Josué",
+    "capitulo": 1,
+    "versiculos": "8",
+    "tema": "Sabedoria",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 5,
+    "livro": "Josué",
+    "capitulo": 1,
+    "versiculos": "9",
+    "tema": "Coragem",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 6,
+    "livro": "Rute",
+    "capitulo": 2,
+    "versiculos": "12",
+    "tema": "Benção",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 7,
+    "livro": "1 Samuel",
+    "capitulo": 2,
+    "versiculos": "1",
+    "tema": "Alegria",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 8,
+    "livro": "2 Samuel",
+    "capitulo": 22,
+    "versiculos": "31",
+    "tema": "Confiança",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 9,
+    "livro": "1 Crônicas",
+    "capitulo": 16,
+    "versiculos": "8-11",
+    "tema": "Gratidão",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 10,
+    "livro": "1 Crônicas",
+    "capitulo": 16,
+    "versiculos": "23-24",
+    "tema": "Louvor",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 11,
+    "livro": "1 Crônicas",
+    "capitulo": 16,
+    "versiculos": "34",
+    "tema": "Gratidão",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 12,
+    "livro": "1 Crônicas",
+    "capitulo": 29,
+    "versiculos": "11-13",
+    "tema": "Adoração",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 13,
+    "livro": "2 Crônicas",
+    "capitulo": 15,
+    "versiculos": "7",
+    "tema": "Perseverança",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 14,
+    "livro": "Neemias",
+    "capitulo": 8,
+    "versiculos": "10",
+    "tema": "Alegria",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 15,
+    "livro": "Jó",
+    "capitulo": 22,
+    "versiculos": "21",
+    "tema": "Paz",
+    "peso": 7,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 16,
+    "livro": "Salmos",
+    "capitulo": 1,
+    "versiculos": "1-3",
+    "tema": "Propósito",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 17,
+    "livro": "Salmos",
+    "capitulo": 4,
+    "versiculos": "7-8",
+    "tema": "Alegria",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 18,
+    "livro": "Salmos",
+    "capitulo": 5,
+    "versiculos": "11-12",
+    "tema": "Proteção",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 19,
+    "livro": "Salmos",
+    "capitulo": 16,
+    "versiculos": "8",
+    "tema": "Confiança",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 20,
+    "livro": "Salmos",
+    "capitulo": 16,
+    "versiculos": "11",
+    "tema": "Alegria",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 21,
+    "livro": "Salmos",
+    "capitulo": 18,
+    "versiculos": "1-2",
+    "tema": "Proteção",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 22,
+    "livro": "Salmos",
+    "capitulo": 18,
+    "versiculos": "30",
+    "tema": "Confiança",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 23,
+    "livro": "Salmos",
+    "capitulo": 19,
+    "versiculos": "14",
+    "tema": "Consagração",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 24,
+    "livro": "Salmos",
+    "capitulo": 20,
+    "versiculos": "4",
+    "tema": "Benção",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 25,
+    "livro": "Salmos",
+    "capitulo": 23,
+    "versiculos": "1-6",
+    "tema": "Confiança",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 26,
+    "livro": "Salmos",
+    "capitulo": 25,
+    "versiculos": "4-5",
+    "tema": "Direção",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 27,
+    "livro": "Salmos",
+    "capitulo": 27,
+    "versiculos": "1",
+    "tema": "Confiança",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 28,
+    "livro": "Salmos",
+    "capitulo": 27,
+    "versiculos": "13-14",
+    "tema": "Esperança",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 29,
+    "livro": "Salmos",
+    "capitulo": 28,
+    "versiculos": "7",
+    "tema": "Confiança",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 30,
+    "livro": "Salmos",
+    "capitulo": 29,
+    "versiculos": "11",
+    "tema": "Paz",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 31,
+    "livro": "Salmos",
+    "capitulo": 31,
+    "versiculos": "24",
+    "tema": "Encorajamento",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 32,
+    "livro": "Salmos",
+    "capitulo": 32,
+    "versiculos": "8",
+    "tema": "Direção",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 33,
+    "livro": "Salmos",
+    "capitulo": 33,
+    "versiculos": "20-22",
+    "tema": "Esperança",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 34,
+    "livro": "Salmos",
+    "capitulo": 34,
+    "versiculos": "8",
+    "tema": "Confiança",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 35,
+    "livro": "Salmos",
+    "capitulo": 34,
+    "versiculos": "18",
+    "tema": "Consolação",
+    "peso": 7,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 36,
+    "livro": "Salmos",
+    "capitulo": 36,
+    "versiculos": "7-9",
+    "tema": "Amor de Deus",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 37,
+    "livro": "Salmos",
+    "capitulo": 37,
+    "versiculos": "3-5",
+    "tema": "Confiança",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 38,
+    "livro": "Salmos",
+    "capitulo": 37,
+    "versiculos": "23-24",
+    "tema": "Direção",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 39,
+    "livro": "Salmos",
+    "capitulo": 40,
+    "versiculos": "5",
+    "tema": "Gratidão",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 40,
+    "livro": "Salmos",
+    "capitulo": 46,
+    "versiculos": "1",
+    "tema": "Proteção",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 41,
+    "livro": "Salmos",
+    "capitulo": 46,
+    "versiculos": "10",
+    "tema": "Confiança",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 42,
+    "livro": "Salmos",
+    "capitulo": 55,
+    "versiculos": "22",
+    "tema": "Descanso",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 43,
+    "livro": "Salmos",
+    "capitulo": 56,
+    "versiculos": "3-4",
+    "tema": "Confiança",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 44,
+    "livro": "Salmos",
+    "capitulo": 62,
+    "versiculos": "1-2",
+    "tema": "Confiança",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 45,
+    "livro": "Salmos",
+    "capitulo": 63,
+    "versiculos": "3-4",
+    "tema": "Louvor",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 46,
+    "livro": "Salmos",
+    "capitulo": 68,
+    "versiculos": "19",
+    "tema": "Gratidão",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 47,
+    "livro": "Salmos",
+    "capitulo": 71,
+    "versiculos": "5-6",
+    "tema": "Vida",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 48,
+    "livro": "Salmos",
+    "capitulo": 73,
+    "versiculos": "23-26",
+    "tema": "Presença de Deus",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 49,
+    "livro": "Salmos",
+    "capitulo": 84,
+    "versiculos": "11",
+    "tema": "Benção",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 50,
+    "livro": "Salmos",
+    "capitulo": 85,
+    "versiculos": "10",
+    "tema": "Amor e Paz",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 51,
+    "livro": "Salmos",
+    "capitulo": 86,
+    "versiculos": "11",
+    "tema": "Direção",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 52,
+    "livro": "Salmos",
+    "capitulo": 90,
+    "versiculos": "12",
+    "tema": "Sabedoria",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 53,
+    "livro": "Salmos",
+    "capitulo": 91,
+    "versiculos": "1-2",
+    "tema": "Proteção",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 54,
+    "livro": "Salmos",
+    "capitulo": 91,
+    "versiculos": "11",
+    "tema": "Proteção",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 55,
+    "livro": "Salmos",
+    "capitulo": 92,
+    "versiculos": "1-2",
+    "tema": "Gratidão",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 56,
+    "livro": "Salmos",
+    "capitulo": 92,
+    "versiculos": "12-15",
+    "tema": "Frutificação",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 57,
+    "livro": "Salmos",
+    "capitulo": 94,
+    "versiculos": "19",
+    "tema": "Consolo",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 58,
+    "livro": "Salmos",
+    "capitulo": 100,
+    "versiculos": "4-5",
+    "tema": "Gratidão",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 59,
+    "livro": "Salmos",
+    "capitulo": 103,
+    "versiculos": "1-5",
+    "tema": "Gratidão",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 60,
+    "livro": "Salmos",
+    "capitulo": 103,
+    "versiculos": "8",
+    "tema": "Misericórdia",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 61,
+    "livro": "Salmos",
+    "capitulo": 107,
+    "versiculos": "1",
+    "tema": "Gratidão",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 62,
+    "livro": "Salmos",
+    "capitulo": 112,
+    "versiculos": "1-3",
+    "tema": "Benção",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 63,
+    "livro": "Salmos",
+    "capitulo": 115,
+    "versiculos": "12-15",
+    "tema": "Benção",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 64,
+    "livro": "Salmos",
+    "capitulo": 118,
+    "versiculos": "24",
+    "tema": "Alegria",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 65,
+    "livro": "Salmos",
+    "capitulo": 119,
+    "versiculos": "105",
+    "tema": "Direção",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 66,
+    "livro": "Salmos",
+    "capitulo": 121,
+    "versiculos": "1-2",
+    "tema": "Confiança",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 67,
+    "livro": "Salmos",
+    "capitulo": 121,
+    "versiculos": "7-8",
+    "tema": "Proteção",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 68,
+    "livro": "Salmos",
+    "capitulo": 126,
+    "versiculos": "3",
+    "tema": "Alegria",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 69,
+    "livro": "Salmos",
+    "capitulo": 127,
+    "versiculos": "1",
+    "tema": "Dependência de Deus",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 70,
+    "livro": "Salmos",
+    "capitulo": 127,
+    "versiculos": "3",
+    "tema": "Família",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 71,
+    "livro": "Salmos",
+    "capitulo": 128,
+    "versiculos": "1-2",
+    "tema": "Benção",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 72,
+    "livro": "Salmos",
+    "capitulo": 136,
+    "versiculos": "1",
+    "tema": "Gratidão",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 73,
+    "livro": "Salmos",
+    "capitulo": 139,
+    "versiculos": "14",
+    "tema": "Vida",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 74,
+    "livro": "Salmos",
+    "capitulo": 143,
+    "versiculos": "8",
+    "tema": "Direção",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 75,
+    "livro": "Salmos",
+    "capitulo": 145,
+    "versiculos": "8-9",
+    "tema": "Misericórdia",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 76,
+    "livro": "Salmos",
+    "capitulo": 145,
+    "versiculos": "18-19",
+    "tema": "Oração",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 77,
+    "livro": "Salmos",
+    "capitulo": 146,
+    "versiculos": "5",
+    "tema": "Esperança",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 78,
+    "livro": "Salmos",
+    "capitulo": 150,
+    "versiculos": "6",
+    "tema": "Louvor",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 79,
+    "livro": "Provérbios",
+    "capitulo": 2,
+    "versiculos": "6",
+    "tema": "Sabedoria",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 80,
+    "livro": "Provérbios",
+    "capitulo": 3,
+    "versiculos": "5-6",
+    "tema": "Confiança",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 81,
+    "livro": "Provérbios",
+    "capitulo": 3,
+    "versiculos": "13-18",
+    "tema": "Sabedoria",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 82,
+    "livro": "Provérbios",
+    "capitulo": 4,
+    "versiculos": "18",
+    "tema": "Esperança",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 83,
+    "livro": "Provérbios",
+    "capitulo": 4,
+    "versiculos": "23",
+    "tema": "Sabedoria",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 84,
+    "livro": "Provérbios",
+    "capitulo": 9,
+    "versiculos": "10-11",
+    "tema": "Sabedoria",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 85,
+    "livro": "Provérbios",
+    "capitulo": 10,
+    "versiculos": "22",
+    "tema": "Benção",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 86,
+    "livro": "Provérbios",
+    "capitulo": 12,
+    "versiculos": "25",
+    "tema": "Encorajamento",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 87,
+    "livro": "Provérbios",
+    "capitulo": 15,
+    "versiculos": "13",
+    "tema": "Alegria",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 88,
+    "livro": "Provérbios",
+    "capitulo": 16,
+    "versiculos": "3",
+    "tema": "Propósito",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 89,
+    "livro": "Provérbios",
+    "capitulo": 16,
+    "versiculos": "9",
+    "tema": "Direção",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 90,
+    "livro": "Provérbios",
+    "capitulo": 17,
+    "versiculos": "22",
+    "tema": "Alegria",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 91,
+    "livro": "Provérbios",
+    "capitulo": 18,
+    "versiculos": "10",
+    "tema": "Proteção",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 92,
+    "livro": "Provérbios",
+    "capitulo": 24,
+    "versiculos": "3-4",
+    "tema": "Sabedoria",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 93,
+    "livro": "Provérbios",
+    "capitulo": 31,
+    "versiculos": "25",
+    "tema": "Força",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 94,
+    "livro": "Eclesiastes",
+    "capitulo": 3,
+    "versiculos": "11",
+    "tema": "Propósito",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 95,
+    "livro": "Cânticos",
+    "capitulo": 2,
+    "versiculos": "4",
+    "tema": "Amor",
+    "peso": 7,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 96,
+    "livro": "Isaías",
+    "capitulo": 12,
+    "versiculos": "2",
+    "tema": "Confiança",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 97,
+    "livro": "Isaías",
+    "capitulo": 26,
+    "versiculos": "3-4",
+    "tema": "Paz",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 98,
+    "livro": "Isaías",
+    "capitulo": 30,
+    "versiculos": "15",
+    "tema": "Descanso",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 99,
+    "livro": "Isaías",
+    "capitulo": 40,
+    "versiculos": "29-31",
+    "tema": "Força",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 100,
+    "livro": "Isaías",
+    "capitulo": 41,
+    "versiculos": "10",
+    "tema": "Encorajamento",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 101,
+    "livro": "Isaías",
+    "capitulo": 43,
+    "versiculos": "2",
+    "tema": "Presença de Deus",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 102,
+    "livro": "Isaías",
+    "capitulo": 43,
+    "versiculos": "4",
+    "tema": "Amor de Deus",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 103,
+    "livro": "Isaías",
+    "capitulo": 46,
+    "versiculos": "4",
+    "tema": "Cuidado de Deus",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 104,
+    "livro": "Isaías",
+    "capitulo": 54,
+    "versiculos": "10",
+    "tema": "Amor de Deus",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 105,
+    "livro": "Isaías",
+    "capitulo": 55,
+    "versiculos": "8-9",
+    "tema": "Confiança",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 106,
+    "livro": "Isaías",
+    "capitulo": 58,
+    "versiculos": "11",
+    "tema": "Direção",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 107,
+    "livro": "Isaías",
+    "capitulo": 60,
+    "versiculos": "1",
+    "tema": "Propósito",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 108,
+    "livro": "Isaías",
+    "capitulo": 61,
+    "versiculos": "10",
+    "tema": "Alegria",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 109,
+    "livro": "Jeremias",
+    "capitulo": 17,
+    "versiculos": "7-8",
+    "tema": "Confiança",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 110,
+    "livro": "Jeremias",
+    "capitulo": 29,
+    "versiculos": "11",
+    "tema": "Esperança",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 111,
+    "livro": "Jeremias",
+    "capitulo": 31,
+    "versiculos": "3",
+    "tema": "Amor de Deus",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 112,
+    "livro": "Jeremias",
+    "capitulo": 32,
+    "versiculos": "17",
+    "tema": "Fé",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 113,
+    "livro": "Jeremias",
+    "capitulo": 33,
+    "versiculos": "3",
+    "tema": "Oração",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 114,
+    "livro": "Lamentações",
+    "capitulo": 3,
+    "versiculos": "22-23",
+    "tema": "Misericórdia",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 115,
+    "livro": "Ezequiel",
+    "capitulo": 36,
+    "versiculos": "26",
+    "tema": "Renovação",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 116,
+    "livro": "Daniel",
+    "capitulo": 2,
+    "versiculos": "20-22",
+    "tema": "Sabedoria",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 117,
+    "livro": "Oséias",
+    "capitulo": 6,
+    "versiculos": "3",
+    "tema": "Conhecimento de Deus",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 118,
+    "livro": "Joel",
+    "capitulo": 2,
+    "versiculos": "25-26",
+    "tema": "Restauração",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 119,
+    "livro": "Miquéias",
+    "capitulo": 6,
+    "versiculos": "8",
+    "tema": "Vida Cristã",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 120,
+    "livro": "Naum",
+    "capitulo": 1,
+    "versiculos": "7",
+    "tema": "Proteção",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 121,
+    "livro": "Habacuque",
+    "capitulo": 3,
+    "versiculos": "17-19",
+    "tema": "Confiança",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 122,
+    "livro": "Sofonias",
+    "capitulo": 3,
+    "versiculos": "17",
+    "tema": "Amor de Deus",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 123,
+    "livro": "Ageu",
+    "capitulo": 2,
+    "versiculos": "9",
+    "tema": "Paz",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 124,
+    "livro": "Zacarias",
+    "capitulo": 4,
+    "versiculos": "6",
+    "tema": "Dependência de Deus",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 125,
+    "livro": "Malaquias",
+    "capitulo": 4,
+    "versiculos": "2",
+    "tema": "Esperança",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 126,
+    "livro": "Mateus",
+    "capitulo": 5,
+    "versiculos": "3-10",
+    "tema": "Benção",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 127,
+    "livro": "Mateus",
+    "capitulo": 5,
+    "versiculos": "14-16",
+    "tema": "Testemunho",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 128,
+    "livro": "Mateus",
+    "capitulo": 6,
+    "versiculos": "9-13",
+    "tema": "Oração",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 129,
+    "livro": "Mateus",
+    "capitulo": 6,
+    "versiculos": "25-34",
+    "tema": "Confiança",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 130,
+    "livro": "Mateus",
+    "capitulo": 6,
+    "versiculos": "33",
+    "tema": "Prioridade Espiritual",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 131,
+    "livro": "Mateus",
+    "capitulo": 7,
+    "versiculos": "7-8",
+    "tema": "Oração",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 132,
+    "livro": "Mateus",
+    "capitulo": 11,
+    "versiculos": "28-30",
+    "tema": "Descanso",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 133,
+    "livro": "Mateus",
+    "capitulo": 19,
+    "versiculos": "26",
+    "tema": "Fé",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 134,
+    "livro": "Mateus",
+    "capitulo": 28,
+    "versiculos": "20",
+    "tema": "Presença de Cristo",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 135,
+    "livro": "Marcos",
+    "capitulo": 9,
+    "versiculos": "23",
+    "tema": "Fé",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 136,
+    "livro": "Marcos",
+    "capitulo": 10,
+    "versiculos": "27",
+    "tema": "Fé",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 137,
+    "livro": "Marcos",
+    "capitulo": 12,
+    "versiculos": "30-31",
+    "tema": "Amor",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 138,
+    "livro": "Lucas",
+    "capitulo": 1,
+    "versiculos": "37",
+    "tema": "Fé",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 139,
+    "livro": "Lucas",
+    "capitulo": 2,
+    "versiculos": "14",
+    "tema": "Paz",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 140,
+    "livro": "Lucas",
+    "capitulo": 2,
+    "versiculos": "40",
+    "tema": "Crescimento",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 141,
+    "livro": "Lucas",
+    "capitulo": 6,
+    "versiculos": "31",
+    "tema": "Amor ao Próximo",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 142,
+    "livro": "Lucas",
+    "capitulo": 11,
+    "versiculos": "9-10",
+    "tema": "Oração",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 143,
+    "livro": "Lucas",
+    "capitulo": 12,
+    "versiculos": "32",
+    "tema": "Confiança",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 144,
+    "livro": "João",
+    "capitulo": 1,
+    "versiculos": "16",
+    "tema": "Graça",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 145,
+    "livro": "João",
+    "capitulo": 3,
+    "versiculos": "16",
+    "tema": "Amor de Deus",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 146,
+    "livro": "João",
+    "capitulo": 4,
+    "versiculos": "14",
+    "tema": "Vida",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 147,
+    "livro": "João",
+    "capitulo": 6,
+    "versiculos": "35",
+    "tema": "Cristo",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 148,
+    "livro": "João",
+    "capitulo": 8,
+    "versiculos": "12",
+    "tema": "Direção",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 149,
+    "livro": "João",
+    "capitulo": 10,
+    "versiculos": "10",
+    "tema": "Vida Abundante",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 150,
+    "livro": "João",
+    "capitulo": 10,
+    "versiculos": "27-28",
+    "tema": "Segurança",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 151,
+    "livro": "João",
+    "capitulo": 11,
+    "versiculos": "25-26",
+    "tema": "Vida",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 152,
+    "livro": "João",
+    "capitulo": 13,
+    "versiculos": "34-35",
+    "tema": "Amor",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 153,
+    "livro": "João",
+    "capitulo": 14,
+    "versiculos": "1",
+    "tema": "Paz",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 154,
+    "livro": "João",
+    "capitulo": 14,
+    "versiculos": "6",
+    "tema": "Cristo",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 155,
+    "livro": "João",
+    "capitulo": 14,
+    "versiculos": "27",
+    "tema": "Paz",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 156,
+    "livro": "João",
+    "capitulo": 15,
+    "versiculos": "5",
+    "tema": "Dependência de Deus",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 157,
+    "livro": "João",
+    "capitulo": 15,
+    "versiculos": "7",
+    "tema": "Oração",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 158,
+    "livro": "João",
+    "capitulo": 15,
+    "versiculos": "9",
+    "tema": "Amor",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 159,
+    "livro": "João",
+    "capitulo": 15,
+    "versiculos": "11",
+    "tema": "Alegria",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 160,
+    "livro": "João",
+    "capitulo": 16,
+    "versiculos": "24",
+    "tema": "Alegria",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 161,
+    "livro": "João",
+    "capitulo": 16,
+    "versiculos": "33",
+    "tema": "Encorajamento",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 162,
+    "livro": "Atos",
+    "capitulo": 2,
+    "versiculos": "28",
+    "tema": "Alegria",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 163,
+    "livro": "Atos",
+    "capitulo": 20,
+    "versiculos": "35",
+    "tema": "Generosidade",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 164,
+    "livro": "Romanos",
+    "capitulo": 5,
+    "versiculos": "1-5",
+    "tema": "Esperança",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 165,
+    "livro": "Romanos",
+    "capitulo": 8,
+    "versiculos": "1",
+    "tema": "Graça",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 166,
+    "livro": "Romanos",
+    "capitulo": 8,
+    "versiculos": "14-16",
+    "tema": "Filiação",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 167,
+    "livro": "Romanos",
+    "capitulo": 8,
+    "versiculos": "28",
+    "tema": "Propósito",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 168,
+    "livro": "Romanos",
+    "capitulo": 8,
+    "versiculos": "31",
+    "tema": "Vitória",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 169,
+    "livro": "Romanos",
+    "capitulo": 8,
+    "versiculos": "37",
+    "tema": "Vitória",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 170,
+    "livro": "Romanos",
+    "capitulo": 8,
+    "versiculos": "38-39",
+    "tema": "Amor de Deus",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 171,
+    "livro": "Romanos",
+    "capitulo": 10,
+    "versiculos": "17",
+    "tema": "Fé",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 172,
+    "livro": "Romanos",
+    "capitulo": 12,
+    "versiculos": "2",
+    "tema": "Renovação",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 173,
+    "livro": "Romanos",
+    "capitulo": 12,
+    "versiculos": "10",
+    "tema": "Amor Fraternal",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 174,
+    "livro": "Romanos",
+    "capitulo": 12,
+    "versiculos": "12",
+    "tema": "Esperança",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 175,
+    "livro": "Romanos",
+    "capitulo": 12,
+    "versiculos": "21",
+    "tema": "Vitória",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 176,
+    "livro": "Romanos",
+    "capitulo": 15,
+    "versiculos": "13",
+    "tema": "Esperança",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 177,
+    "livro": "1 Coríntios",
+    "capitulo": 2,
+    "versiculos": "9",
+    "tema": "Esperança",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 178,
+    "livro": "1 Coríntios",
+    "capitulo": 10,
+    "versiculos": "13",
+    "tema": "Fidelidade de Deus",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 179,
+    "livro": "1 Coríntios",
+    "capitulo": 13,
+    "versiculos": "4-8",
+    "tema": "Amor",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 180,
+    "livro": "1 Coríntios",
+    "capitulo": 13,
+    "versiculos": "13",
+    "tema": "Amor",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 181,
+    "livro": "1 Coríntios",
+    "capitulo": 15,
+    "versiculos": "57",
+    "tema": "Vitória",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 182,
+    "livro": "1 Coríntios",
+    "capitulo": 16,
+    "versiculos": "13-14",
+    "tema": "Fé e Amor",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 183,
+    "livro": "2 Coríntios",
+    "capitulo": 1,
+    "versiculos": "3-4",
+    "tema": "Consolação",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 184,
+    "livro": "2 Coríntios",
+    "capitulo": 3,
+    "versiculos": "18",
+    "tema": "Transformação",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 185,
+    "livro": "2 Coríntios",
+    "capitulo": 4,
+    "versiculos": "16-18",
+    "tema": "Esperança",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 186,
+    "livro": "2 Coríntios",
+    "capitulo": 5,
+    "versiculos": "7",
+    "tema": "Fé",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 187,
+    "livro": "2 Coríntios",
+    "capitulo": 5,
+    "versiculos": "17",
+    "tema": "Nova Vida",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 188,
+    "livro": "2 Coríntios",
+    "capitulo": 9,
+    "versiculos": "8",
+    "tema": "Graça",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 189,
+    "livro": "2 Coríntios",
+    "capitulo": 12,
+    "versiculos": "9",
+    "tema": "Graça",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 190,
+    "livro": "Gálatas",
+    "capitulo": 2,
+    "versiculos": "20",
+    "tema": "Vida em Cristo",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 191,
+    "livro": "Gálatas",
+    "capitulo": 5,
+    "versiculos": "22-23",
+    "tema": "Fruto do Espírito",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 192,
+    "livro": "Gálatas",
+    "capitulo": 6,
+    "versiculos": "9",
+    "tema": "Perseverança",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 193,
+    "livro": "Efésios",
+    "capitulo": 1,
+    "versiculos": "3",
+    "tema": "Benção",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 194,
+    "livro": "Efésios",
+    "capitulo": 2,
+    "versiculos": "8-10",
+    "tema": "Graça",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 195,
+    "livro": "Efésios",
+    "capitulo": 3,
+    "versiculos": "16-19",
+    "tema": "Amor de Deus",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 196,
+    "livro": "Efésios",
+    "capitulo": 3,
+    "versiculos": "20",
+    "tema": "Fé",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 197,
+    "livro": "Efésios",
+    "capitulo": 4,
+    "versiculos": "2-3",
+    "tema": "Amor e Paz",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 198,
+    "livro": "Efésios",
+    "capitulo": 4,
+    "versiculos": "32",
+    "tema": "Bondade",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 199,
+    "livro": "Efésios",
+    "capitulo": 5,
+    "versiculos": "1-2",
+    "tema": "Amor",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 200,
+    "livro": "Efésios",
+    "capitulo": 6,
+    "versiculos": "10",
+    "tema": "Força",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 201,
+    "livro": "Filipenses",
+    "capitulo": 1,
+    "versiculos": "6",
+    "tema": "Propósito",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 202,
+    "livro": "Filipenses",
+    "capitulo": 1,
+    "versiculos": "9-11",
+    "tema": "Amor e Discernimento",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 203,
+    "livro": "Filipenses",
+    "capitulo": 2,
+    "versiculos": "13",
+    "tema": "Propósito",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 204,
+    "livro": "Filipenses",
+    "capitulo": 3,
+    "versiculos": "13-14",
+    "tema": "Propósito",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 205,
+    "livro": "Filipenses",
+    "capitulo": 4,
+    "versiculos": "4",
+    "tema": "Alegria",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 206,
+    "livro": "Filipenses",
+    "capitulo": 4,
+    "versiculos": "6-7",
+    "tema": "Paz",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 207,
+    "livro": "Filipenses",
+    "capitulo": 4,
+    "versiculos": "8",
+    "tema": "Sabedoria",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 208,
+    "livro": "Filipenses",
+    "capitulo": 4,
+    "versiculos": "13",
+    "tema": "Força",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 209,
+    "livro": "Filipenses",
+    "capitulo": 4,
+    "versiculos": "19",
+    "tema": "Provisão",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 210,
+    "livro": "Colossenses",
+    "capitulo": 1,
+    "versiculos": "9-12",
+    "tema": "Sabedoria",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 211,
+    "livro": "Colossenses",
+    "capitulo": 2,
+    "versiculos": "6-7",
+    "tema": "Fé",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 212,
+    "livro": "Colossenses",
+    "capitulo": 3,
+    "versiculos": "12-15",
+    "tema": "Amor e Paz",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 213,
+    "livro": "Colossenses",
+    "capitulo": 3,
+    "versiculos": "16-17",
+    "tema": "Gratidão",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 214,
+    "livro": "1 Tessalonicenses",
+    "capitulo": 5,
+    "versiculos": "11",
+    "tema": "Encorajamento",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 215,
+    "livro": "1 Tessalonicenses",
+    "capitulo": 5,
+    "versiculos": "16-18",
+    "tema": "Alegria e Gratidão",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 216,
+    "livro": "1 Tessalonicenses",
+    "capitulo": 5,
+    "versiculos": "23-24",
+    "tema": "Fidelidade de Deus",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 217,
+    "livro": "2 Tessalonicenses",
+    "capitulo": 2,
+    "versiculos": "16-17",
+    "tema": "Consolo",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 218,
+    "livro": "2 Tessalonicenses",
+    "capitulo": 3,
+    "versiculos": "3",
+    "tema": "Proteção",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 219,
+    "livro": "1 Timóteo",
+    "capitulo": 4,
+    "versiculos": "12",
+    "tema": "Testemunho",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 220,
+    "livro": "1 Timóteo",
+    "capitulo": 6,
+    "versiculos": "6",
+    "tema": "Contentamento",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 221,
+    "livro": "2 Timóteo",
+    "capitulo": 1,
+    "versiculos": "7",
+    "tema": "Coragem",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 222,
+    "livro": "2 Timóteo",
+    "capitulo": 2,
+    "versiculos": "1",
+    "tema": "Graça",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 223,
+    "livro": "Tito",
+    "capitulo": 2,
+    "versiculos": "11-14",
+    "tema": "Graça",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 224,
+    "livro": "Filemom",
+    "capitulo": 1,
+    "versiculos": "7",
+    "tema": "Alegria",
+    "peso": 7,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 225,
+    "livro": "Hebreus",
+    "capitulo": 4,
+    "versiculos": "16",
+    "tema": "Graça",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 226,
+    "livro": "Hebreus",
+    "capitulo": 6,
+    "versiculos": "19",
+    "tema": "Esperança",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 227,
+    "livro": "Hebreus",
+    "capitulo": 10,
+    "versiculos": "23-24",
+    "tema": "Esperança",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 228,
+    "livro": "Hebreus",
+    "capitulo": 11,
+    "versiculos": "1",
+    "tema": "Fé",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 229,
+    "livro": "Hebreus",
+    "capitulo": 12,
+    "versiculos": "1-2",
+    "tema": "Perseverança",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 230,
+    "livro": "Hebreus",
+    "capitulo": 13,
+    "versiculos": "5-6",
+    "tema": "Confiança",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 231,
+    "livro": "Hebreus",
+    "capitulo": 13,
+    "versiculos": "8",
+    "tema": "Cristo",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 232,
+    "livro": "Tiago",
+    "capitulo": 1,
+    "versiculos": "2-4",
+    "tema": "Perseverança",
+    "peso": 7,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 233,
+    "livro": "Tiago",
+    "capitulo": 1,
+    "versiculos": "5",
+    "tema": "Sabedoria",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 234,
+    "livro": "Tiago",
+    "capitulo": 1,
+    "versiculos": "17",
+    "tema": "Gratidão",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 235,
+    "livro": "Tiago",
+    "capitulo": 4,
+    "versiculos": "8",
+    "tema": "Comunhão",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 236,
+    "livro": "1 Pedro",
+    "capitulo": 1,
+    "versiculos": "3-4",
+    "tema": "Esperança",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 237,
+    "livro": "1 Pedro",
+    "capitulo": 1,
+    "versiculos": "8-9",
+    "tema": "Alegria",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 238,
+    "livro": "1 Pedro",
+    "capitulo": 2,
+    "versiculos": "9",
+    "tema": "Identidade",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 239,
+    "livro": "1 Pedro",
+    "capitulo": 3,
+    "versiculos": "15",
+    "tema": "Esperança",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 240,
+    "livro": "1 Pedro",
+    "capitulo": 5,
+    "versiculos": "7",
+    "tema": "Descanso",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 241,
+    "livro": "1 Pedro",
+    "capitulo": 5,
+    "versiculos": "10",
+    "tema": "Restauração",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 242,
+    "livro": "2 Pedro",
+    "capitulo": 1,
+    "versiculos": "2-3",
+    "tema": "Graça e Paz",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 243,
+    "livro": "2 Pedro",
+    "capitulo": 3,
+    "versiculos": "18",
+    "tema": "Crescimento Espiritual",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 244,
+    "livro": "1 João",
+    "capitulo": 3,
+    "versiculos": "1",
+    "tema": "Amor de Deus",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 245,
+    "livro": "1 João",
+    "capitulo": 3,
+    "versiculos": "18",
+    "tema": "Amor Prático",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 246,
+    "livro": "1 João",
+    "capitulo": 4,
+    "versiculos": "7-8",
+    "tema": "Amor",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 247,
+    "livro": "1 João",
+    "capitulo": 4,
+    "versiculos": "9-11",
+    "tema": "Amor de Deus",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 248,
+    "livro": "1 João",
+    "capitulo": 4,
+    "versiculos": "16",
+    "tema": "Amor de Deus",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 249,
+    "livro": "1 João",
+    "capitulo": 4,
+    "versiculos": "18",
+    "tema": "Amor e Confiança",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 250,
+    "livro": "1 João",
+    "capitulo": 5,
+    "versiculos": "4",
+    "tema": "Vitória",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 251,
+    "livro": "3 João",
+    "capitulo": 1,
+    "versiculos": "2",
+    "tema": "Benção",
+    "peso": 10,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 252,
+    "livro": "Judas",
+    "capitulo": 1,
+    "versiculos": "24-25",
+    "tema": "Proteção",
+    "peso": 9,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 253,
+    "livro": "Apocalipse",
+    "capitulo": 1,
+    "versiculos": "8",
+    "tema": "Cristo",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 254,
+    "livro": "Apocalipse",
+    "capitulo": 3,
+    "versiculos": "20",
+    "tema": "Comunhão",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 255,
+    "livro": "Apocalipse",
+    "capitulo": 21,
+    "versiculos": "4",
+    "tema": "Esperança",
+    "peso": 8,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  },
+  {
+    "id": 256,
+    "livro": "Apocalipse",
+    "capitulo": 22,
+    "versiculos": "17",
+    "tema": "Convite",
+    "peso": 7,
+    "status": "Aprovado",
+    "uso": "Aniversário"
+  }
+]
