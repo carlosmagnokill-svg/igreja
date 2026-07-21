@@ -22,6 +22,7 @@ const ui = {
   visibleRecords: document.querySelector("#visibleRecords"),
   activeFilterText: document.querySelector("#activeFilterText"),
   loadingState: document.querySelector("#loadingState"),
+  loadingDetail: document.querySelector("#loadingDetail"),
   errorState: document.querySelector("#errorState"),
   errorMessage: document.querySelector("#errorMessage"),
   tableArea: document.querySelector("#tableArea"),
@@ -372,8 +373,23 @@ function getCategorySummary(members) {
   return summary;
 }
 
+
+function updateLoadingProgress(currentPage, totalPages) {
+  if (!ui.loadingDetail) return;
+
+  if (!currentPage || !totalPages) {
+    ui.loadingDetail.textContent = "Preparando leitura do documento...";
+    return;
+  }
+
+  const percent = Math.round((currentPage / totalPages) * 100);
+  ui.loadingDetail.textContent =
+    `Lendo página ${currentPage} de ${totalPages} (${percent}%)...`;
+}
+
 async function readPdf() {
   setLoading(true);
+  updateLoadingProgress();
 
   try {
     const responsiblesPromise = loadResponsibles();
@@ -388,6 +404,7 @@ async function readPdf() {
     let referenceDate = "";
 
     for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber += 1) {
+      updateLoadingProgress(pageNumber, pdf.numPages);
       const page = await pdf.getPage(pageNumber);
       const content = await page.getTextContent();
       const rows = groupTextItems(content.items);
@@ -419,6 +436,10 @@ async function readPdf() {
     ui.referenceDate.textContent = referenceDate || "não informada";
     ui.totalRecords.textContent = String(deduplicated.length);
 
+    if (ui.loadingDetail) {
+      ui.loadingDetail.textContent = "Finalizando registros...";
+    }
+
     buildFilters();
     applyFilters();
     setLoading(false);
@@ -432,6 +453,10 @@ async function readPdf() {
 
 function setLoading(isLoading) {
   ui.loadingState.hidden = !isLoading;
+
+  if (isLoading && ui.loadingDetail) {
+    ui.loadingDetail.textContent = "Preparando leitura do documento...";
+  }
   ui.errorState.hidden = true;
   ui.tableArea.hidden = isLoading;
 }
