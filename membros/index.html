@@ -1,1 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#a90e18">
+  <title>Relatório Geral de Membros</title>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="church-name">
+      <span>Igreja Cristã Maranata</span>
+      <strong>Vale Esperança</strong>
+    </div>
 
+    <h1>MEMBROS</h1>
+
+    <div class="brand">
+      <img src="logo_ICM_BRANCO.png" alt="Logomarca ICM">
+      <span class="version">Versão 1.0</span>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="status-card" aria-label="Informações da fonte">
+      <div><span>Data de referência:</span> <strong id="referenceDate">--</strong></div>
+      <div><span>Fontes:</span> <strong>SGI - ICM / PDF + Responsáveis GA</strong></div>
+      <div class="status-actions">
+        <span class="record-pill">Registros lidos: <strong id="totalRecords">0</strong></span>
+        <button id="reloadButton" class="icon-button" type="button" title="Recarregar PDF" aria-label="Recarregar PDF">↻</button>
+      </div>
+    </section>
+
+    <section class="report-card">
+      <div class="report-heading">
+        <div>
+          <h2>Relatório Geral de Membros</h2>
+          <p>Consulta operacional do cadastro geral</p>
+        </div>
+        <div class="heading-actions">
+          <button id="clearFilters" class="secondary-button" type="button">Limpar filtros</button>
+          <button id="savePdfButton" class="primary-button" type="button">Salvar PDF</button>
+        </div>
+      </div>
+
+      <div class="filters" aria-label="Filtros do relatório">
+        <label class="search-field">
+          <span>Buscar nome</span>
+          <input id="nameSearch" type="search" placeholder="Digite parte do nome..." autocomplete="off">
+        </label>
+
+        <label>
+          <span>Grupo</span>
+          <select id="groupFilter">
+            <option value="">Todos</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Categoria</span>
+          <select id="categoryFilter">
+            <option value="">Todas</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Sexo</span>
+          <select id="sexFilter">
+            <option value="">Todos</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="active-summary">
+        <span>Exibindo <strong id="visibleRecords">0</strong> registro(s)</span>
+        <span id="activeFilterText">Grupo: todos</span>
+      </div>
+
+      <div id="loadingState" class="message-state">
+        <div class="spinner" aria-hidden="true"></div>
+        <strong>Carregando dados do PDF...</strong>
+        <span>A leitura pode levar alguns segundos.</span>
+      </div>
+
+      <div id="errorState" class="message-state error-state" hidden>
+        <strong>Não foi possível ler o PDF.</strong>
+        <span id="errorMessage"></span>
+      </div>
+
+      <div id="tableArea" hidden>
+        <div class="print-header">
+          <div>
+            <h2>Relatório Geral de Membros</h2>
+            <p>Fonte: SGI - ICM</p>
+          </div>
+          <div class="print-meta">
+            <span>Data: <strong id="printDate"></strong></span>
+            <span>Hora: <strong id="printTime"></strong></span>
+            <span>Grupo: <strong id="printGroup">Todos</strong></span>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th class="col-index">It.</th>
+                <th>Nome</th>
+                <th>Grupo</th>
+                <th>Categoria</th>
+                <th>Sexo</th>
+              </tr>
+            </thead>
+            <tbody id="membersBody"></tbody>
+          </table>
+        </div>
+
+        <div id="emptyState" class="empty-state" hidden>
+          Nenhum registro encontrado para os filtros selecionados.
+        </div>
+      </div>
+    </section>
+
+    <p class="footer-note">
+      Os dados são extraídos diretamente do PDF publicado no GitHub. Valide o documento de origem antes de decisões administrativas.
+    </p>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs" type="module"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
