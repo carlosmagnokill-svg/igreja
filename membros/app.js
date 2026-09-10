@@ -766,17 +766,6 @@ async function savePdfReport() {
       3: { cellWidth: 49 },
       4: { cellWidth: 20, halign: "center" },
     },
-    didDrawPage: (data) => {
-      const pageCount = doc.internal.getNumberOfPages();
-      doc.setFontSize(8);
-      doc.setTextColor(104, 117, 138);
-      doc.text(
-        `Página ${pageCount}`,
-        196,
-        289,
-        { align: "right" }
-      );
-    },
   });
 
 
@@ -832,7 +821,7 @@ async function savePdfReport() {
     doc.text(
       `Página ${pageNumber}/${totalPages}`,
       196,
-      289,
+      286,
       { align: "right" }
     );
   }
