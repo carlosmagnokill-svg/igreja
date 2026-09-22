@@ -799,7 +799,7 @@ async function savePdfReport() {
 
   doc.autoTable({
     startY: tableStartY,
-    head: [["It.", "Nome", "Sit.", "Grupo", "Categoria", "Sexo"]],
+    head: [["It.", "Nome", "Situação", "Grupo", "Categoria", "Sexo"]],
     body,
     theme: "grid",
     margin: { left: 14, right: 14, bottom: fitOnePage ? 8 : 14 },
@@ -828,17 +828,37 @@ async function savePdfReport() {
     columnStyles: {
       0: { cellWidth: 9, halign: "center", fontStyle: "bold", textColor: [130, 0, 8] },
       1: { cellWidth: 61, fontStyle: "bold" },
-      2: { cellWidth: 18, halign: "center" },
+      2: { cellWidth: 22, halign: "center" },
       3: { cellWidth: 23 },
-      4: { cellWidth: 55 },
+      4: { cellWidth: 51 },
       5: { cellWidth: 16, halign: "center" },
     },
   });
 
 
+
+  // Legenda de Situação logo após o fim da tabela.
+  let situationLegendY = doc.lastAutoTable.finalY + (fitOnePage ? 2.2 : 4);
+
+  // No modo "caber em uma página", usa o espaço disponível até o rodapé.
+  // Fora dele, se necessário, abre uma nova página para não cortar a legenda.
+  if (!fitOnePage && situationLegendY > 280) {
+    doc.addPage("a4", "portrait");
+    situationLegendY = 16;
+  }
+
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(fitOnePage ? 5.2 : 7);
+  doc.setTextColor(169, 14, 24);
+  doc.text(
+    "Situação: Mem = Membro | Vis = Visitante | Mem NB = Membro não Batizado | Vis Freq = Visitante Frequente",
+    14,
+    situationLegendY
+  );
+
   if (includeSummary) {
     const summary = getCategorySummary(state.filtered);
-  let summaryY = doc.lastAutoTable.finalY + 8;
+  let summaryY = situationLegendY + (fitOnePage ? 3.5 : 7);
 
   if (summaryY > 238) {
     doc.addPage("a4", "portrait");
