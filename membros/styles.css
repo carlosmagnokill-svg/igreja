@@ -512,3 +512,29 @@ thead th:nth-child(6), tbody td:nth-child(6) { width: 8%; text-align: center; }
   .situation-legend { line-height: 1.35; }
   table { min-width: 820px; table-layout: fixed; }
 }
+
+/* V9 — opção de compactação do PDF */
+.option-disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.option-disabled input,
+.option-disabled span {
+  cursor: not-allowed;
+}
+
+.pdf-actions {
+  min-width: max-content;
+}
+
+@media (max-width: 560px) {
+  .pdf-actions {
+    justify-items: start;
+    min-width: 0;
+  }
+
+  .summary-option {
+    white-space: normal;
+  }
+}

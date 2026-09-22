@@ -36,6 +36,8 @@ const ui = {
   reloadButton: document.querySelector("#reloadButton"),
   savePdfButton: document.querySelector("#savePdfButton"),
   includeSummary: document.querySelector("#includeSummary"),
+  fitOnePage: document.querySelector("#fitOnePage"),
+  fitOnePageLabel: document.querySelector("#fitOnePageLabel"),
   printDate: document.querySelector("#printDate"),
   printTime: document.querySelector("#printTime"),
   printGroup: document.querySelector("#printGroup"),
@@ -515,6 +517,20 @@ function buildFilters() {
   );
 }
 
+function updateFitOnePageAvailability() {
+  const hasSelectedGroup = Boolean(ui.groupFilter.value);
+
+  ui.fitOnePage.disabled = !hasSelectedGroup;
+  ui.fitOnePageLabel.classList.toggle("option-disabled", !hasSelectedGroup);
+  ui.fitOnePageLabel.title = hasSelectedGroup
+    ? "Tenta acomodar o relatório do grupo em uma única página A4"
+    : "Selecione um grupo para habilitar";
+
+  if (!hasSelectedGroup) {
+    ui.fitOnePage.checked = false;
+  }
+}
+
 function applyFilters() {
   const search = normalizeText(ui.nameSearch.value);
   const group = ui.groupFilter.value;
@@ -533,6 +549,7 @@ function applyFilters() {
   const groupLabel = group || "todos";
   ui.activeFilterText.textContent = `Grupo: ${groupLabel}`;
   ui.printGroup.textContent = group || "Todos";
+  updateFitOnePageAvailability();
 }
 
 function renderTable() {
@@ -703,6 +720,11 @@ async function savePdfReport() {
   }
 
   const includeSummary = Boolean(ui.includeSummary?.checked);
+  const fitOnePage = Boolean(
+    ui.groupFilter.value &&
+    ui.fitOnePage &&
+    ui.fitOnePage.checked
+  );
 
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF({
@@ -755,30 +777,53 @@ async function savePdfReport() {
     member.sex,
   ]);
 
+  // Modo normal mantém boa legibilidade. O modo "caber" só é permitido
+  // para um grupo específico e calcula uma altura-alvo por linha.
+  const pageHeight = doc.internal.pageSize.getHeight();
+  const tableStartY = 37;
+  const footerReserve = 10;
+  const availableTableHeight = pageHeight - tableStartY - footerReserve;
+  const estimatedHeaderHeight = 6;
+  const rowTargetHeight = Math.max(
+    2.7,
+    Math.min(5.0, (availableTableHeight - estimatedHeaderHeight) / Math.max(body.length, 1))
+  );
+
+  const compactFontSize = fitOnePage
+    ? Math.max(4.2, Math.min(6.4, rowTargetHeight * 1.45))
+    : 6.8;
+
+  const compactPadding = fitOnePage
+    ? Math.max(0.15, Math.min(0.8, (rowTargetHeight - compactFontSize * 0.3528) / 2))
+    : 1.35;
+
   doc.autoTable({
-    startY: 37,
+    startY: tableStartY,
     head: [["It.", "Nome", "Sit.", "Grupo", "Categoria", "Sexo"]],
     body,
     theme: "grid",
-    margin: { left: 14, right: 14, bottom: 14 },
+    margin: { left: 14, right: 14, bottom: fitOnePage ? 8 : 14 },
+    pageBreak: fitOnePage ? "avoid" : "auto",
+    rowPageBreak: "avoid",
     styles: {
       font: "helvetica",
-      fontSize: 6.8,
-      cellPadding: 1.35,
+      fontSize: compactFontSize,
+      cellPadding: compactPadding,
+      minCellHeight: fitOnePage ? rowTargetHeight : 0,
       lineColor: [220, 226, 232],
-      lineWidth: 0.2,
+      lineWidth: fitOnePage ? 0.12 : 0.2,
       textColor: [20, 33, 59],
       valign: "middle",
-      overflow: "linebreak",
+      overflow: fitOnePage ? "ellipsize" : "linebreak",
     },
     headStyles: {
       fillColor: [241, 244, 247],
       textColor: [20, 33, 59],
       fontStyle: "bold",
-      fontSize: 6.6,
-      cellPadding: 1.35,
+      fontSize: fitOnePage ? Math.max(4.4, compactFontSize) : 6.6,
+      cellPadding: fitOnePage ? Math.max(0.3, compactPadding) : 1.35,
       lineColor: [220, 226, 232],
-      lineWidth: 0.2,
+      lineWidth: fitOnePage ? 0.12 : 0.2,
     },
     columnStyles: {
       0: { cellWidth: 9, halign: "center", fontStyle: "bold", textColor: [130, 0, 8] },
@@ -806,7 +851,7 @@ async function savePdfReport() {
   doc.text("Resumo do Relatório", 14, summaryY);
 
   doc.autoTable({
-    startY: summaryY + 4,
+    startY: summaryY + (fitOnePage ? 2 : 4),
     theme: "grid",
     margin: { left: 14, right: 14 },
     body: [
@@ -822,8 +867,8 @@ async function savePdfReport() {
     ],
     styles: {
       font: "helvetica",
-      fontSize: 9,
-      cellPadding: 2.5,
+      fontSize: fitOnePage ? 5.5 : 9,
+      cellPadding: fitOnePage ? 0.8 : 2.5,
       lineColor: [220, 226, 232],
       lineWidth: 0.2,
       textColor: [20, 33, 59],
