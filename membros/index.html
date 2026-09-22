@@ -41,7 +41,13 @@
         </div>
         <div class="heading-actions">
           <button id="clearFilters" class="secondary-button" type="button">Limpar filtros</button>
-          <button id="savePdfButton" class="primary-button" type="button">Salvar PDF</button>
+          <div class="pdf-actions">
+            <button id="savePdfButton" class="primary-button" type="button">Salvar PDF</button>
+            <label class="summary-option">
+              <input id="includeSummary" type="checkbox">
+              <span>Incluir Resumo Relatório</span>
+            </label>
+          </div>
         </div>
       </div>
 
@@ -76,7 +82,7 @@
       <div class="active-summary">
         <div class="summary-left">
           <span>Exibindo <strong id="visibleRecords">0</strong> registro(s)</span>
-          <span class="situation-legend"><strong>Situação:</strong> Mem = Membro · Vis = Visitante · Mem NB = Membro não Batizado · Vis Freq = Visitante Frequente</span>
+          <span class="situation-legend">Mem = Membro · Vis = Visitante · Mem NB = Membro não Batizado · Vis Freq = Visitante Frequente</span>
         </div>
         <span id="activeFilterText">Grupo: todos</span>
       </div>

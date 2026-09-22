@@ -35,6 +35,7 @@ const ui = {
   clearFilters: document.querySelector("#clearFilters"),
   reloadButton: document.querySelector("#reloadButton"),
   savePdfButton: document.querySelector("#savePdfButton"),
+  includeSummary: document.querySelector("#includeSummary"),
   printDate: document.querySelector("#printDate"),
   printTime: document.querySelector("#printTime"),
   printGroup: document.querySelector("#printGroup"),
@@ -204,6 +205,7 @@ function parseRowFallback(text) {
 
   let name = beforeGroup;
   let situationValue = "";
+
   for (const situation of situations) {
     const index = normalizeText(beforeGroup).lastIndexOf(normalizeText(situation));
     if (index > 0) {
@@ -224,11 +226,11 @@ function parseRowFallback(text) {
 }
 
 function abbreviateSituation(value = "") {
-  const v = normalizeText(value);
-  if (v.includes("visitante frequente")) return "Vis Freq";
-  if (v.includes("membro nao batizado")) return "Mem NB";
-  if (v === "visitante" || v.startsWith("visitante ")) return "Vis";
-  if (v === "membro" || v.startsWith("membro ")) return "Mem";
+  const normalized = normalizeText(value);
+  if (normalized.includes("visitante frequente")) return "Vis Freq";
+  if (normalized.includes("membro nao batizado")) return "Mem NB";
+  if (normalized === "visitante") return "Vis";
+  if (normalized === "membro") return "Mem";
   return cleanText(value) || "-";
 }
 
@@ -700,9 +702,7 @@ async function savePdfReport() {
     return;
   }
 
-  const includeSummary = window.confirm(
-    "Deseja incluir o Resumo do Relatório no final do PDF?\n\nOK = Sim\nCancelar = Não"
-  );
+  const includeSummary = Boolean(ui.includeSummary?.checked);
 
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF({
@@ -749,6 +749,7 @@ async function savePdfReport() {
   const body = state.filtered.map((member, index) => [
     index + 1,
     member.name,
+    abbreviateSituation(member.situation),
     member.group,
     member.category,
     member.sex,
@@ -762,8 +763,8 @@ async function savePdfReport() {
     margin: { left: 14, right: 14, bottom: 14 },
     styles: {
       font: "helvetica",
-      fontSize: 8.2,
-      cellPadding: 2.2,
+      fontSize: 6.8,
+      cellPadding: 1.35,
       lineColor: [220, 226, 232],
       lineWidth: 0.2,
       textColor: [20, 33, 59],
@@ -774,15 +775,18 @@ async function savePdfReport() {
       fillColor: [241, 244, 247],
       textColor: [20, 33, 59],
       fontStyle: "bold",
+      fontSize: 6.6,
+      cellPadding: 1.35,
       lineColor: [220, 226, 232],
       lineWidth: 0.2,
     },
     columnStyles: {
-      0: { cellWidth: 11, halign: "center", fontStyle: "bold", textColor: [130, 0, 8] },
-      1: { cellWidth: 75, fontStyle: "bold" },
-      2: { cellWidth: 27 },
-      3: { cellWidth: 49 },
-      4: { cellWidth: 20, halign: "center" },
+      0: { cellWidth: 9, halign: "center", fontStyle: "bold", textColor: [130, 0, 8] },
+      1: { cellWidth: 61, fontStyle: "bold" },
+      2: { cellWidth: 18, halign: "center" },
+      3: { cellWidth: 23 },
+      4: { cellWidth: 55 },
+      5: { cellWidth: 16, halign: "center" },
     },
   });
 
@@ -833,7 +837,7 @@ async function savePdfReport() {
 
   }
 
-  const totalPages = doc.internal.getNumberOfPages();
+    const totalPages = doc.internal.getNumberOfPages();
   for (let pageNumber = 1; pageNumber <= totalPages; pageNumber += 1) {
     doc.setPage(pageNumber);
     doc.setFont("helvetica", "normal");
