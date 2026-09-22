@@ -169,6 +169,7 @@ function parseRowByCoordinates(row, anchors) {
   return {
     item: Number(match[1]),
     name: cleanText(match[2]),
+    situation: joinCell(cells.situation),
     group,
     category,
     sex,
@@ -202,10 +203,12 @@ function parseRowFallback(text) {
   ];
 
   let name = beforeGroup;
+  let situationValue = "";
   for (const situation of situations) {
     const index = normalizeText(beforeGroup).lastIndexOf(normalizeText(situation));
     if (index > 0) {
       name = beforeGroup.slice(0, index).trim();
+      situationValue = situation;
       break;
     }
   }
@@ -213,10 +216,20 @@ function parseRowFallback(text) {
   return {
     item,
     name,
+    situation: situationValue,
     group,
     category: afterGroup,
     sex,
   };
+}
+
+function abbreviateSituation(value = "") {
+  const v = normalizeText(value);
+  if (v.includes("visitante frequente")) return "Vis Freq";
+  if (v.includes("membro nao batizado")) return "Mem NB";
+  if (v === "visitante" || v.startsWith("visitante ")) return "Vis";
+  if (v === "membro" || v.startsWith("membro ")) return "Mem";
+  return cleanText(value) || "-";
 }
 
 function extractReferenceDate(rows) {
@@ -531,6 +544,7 @@ function renderTable() {
     const cells = [
       index + 1,
       member.name,
+      abbreviateSituation(member.situation),
       member.group,
       member.category,
       member.sex,
@@ -686,6 +700,10 @@ async function savePdfReport() {
     return;
   }
 
+  const includeSummary = window.confirm(
+    "Deseja incluir o Resumo do Relatório no final do PDF?\n\nOK = Sim\nCancelar = Não"
+  );
+
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF({
     orientation: "portrait",
@@ -738,7 +756,7 @@ async function savePdfReport() {
 
   doc.autoTable({
     startY: 37,
-    head: [["It.", "Nome", "Grupo", "Categoria", "Sexo"]],
+    head: [["It.", "Nome", "Sit.", "Grupo", "Categoria", "Sexo"]],
     body,
     theme: "grid",
     margin: { left: 14, right: 14, bottom: 14 },
@@ -769,7 +787,8 @@ async function savePdfReport() {
   });
 
 
-  const summary = getCategorySummary(state.filtered);
+  if (includeSummary) {
+    const summary = getCategorySummary(state.filtered);
   let summaryY = doc.lastAutoTable.finalY + 8;
 
   if (summaryY > 238) {
@@ -811,6 +830,8 @@ async function savePdfReport() {
     },
   });
 
+
+  }
 
   const totalPages = doc.internal.getNumberOfPages();
   for (let pageNumber = 1; pageNumber <= totalPages; pageNumber += 1) {
