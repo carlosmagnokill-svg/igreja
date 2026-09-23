@@ -564,3 +564,115 @@ thead th:nth-child(6), tbody td:nth-child(6) { width: 8%; text-align: center; }
     grid-column: auto;
   }
 }
+
+
+/* V12 — filtros multisseleção */
+.filter-field {
+  min-width: 0;
+}
+
+.filter-field > span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+}
+
+.multi-select {
+  position: relative;
+}
+
+.multi-select-trigger {
+  width: 100%;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 0 12px;
+  border: 1px solid #cfd7df;
+  border-radius: 10px;
+  color: var(--ink);
+  background: white;
+  cursor: pointer;
+  text-align: left;
+}
+
+.multi-select-trigger:focus,
+.multi-select-trigger[aria-expanded="true"] {
+  border-color: var(--red-700);
+  box-shadow: 0 0 0 3px rgba(185, 20, 32, .12);
+}
+
+.multi-select-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.multi-select-arrow {
+  flex: 0 0 auto;
+  font-size: 1rem;
+}
+
+.multi-select-menu {
+  position: absolute;
+  z-index: 30;
+  top: calc(100% + 5px);
+  left: 0;
+  width: max(100%, 245px);
+  max-height: 310px;
+  overflow: auto;
+  padding: 6px;
+  border: 1px solid #cfd7df;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 14px 30px rgba(1, 35, 53, .18);
+}
+
+.multi-select-all,
+.multi-select-option {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 36px;
+  padding: 7px 9px;
+  border-radius: 7px;
+  color: var(--ink);
+  font-size: .82rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+  cursor: pointer;
+}
+
+.multi-select-all {
+  margin-bottom: 5px;
+  color: var(--red-900);
+  border-bottom: 1px solid var(--line);
+  border-radius: 7px 7px 0 0;
+  font-weight: 800;
+}
+
+.multi-select-all:hover,
+.multi-select-option:hover {
+  background: var(--surface-soft);
+}
+
+.multi-select-all input,
+.multi-select-option input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--red-800);
+  cursor: pointer;
+}
+
+@media (max-width: 620px) {
+  .multi-select-menu {
+    width: 100%;
+  }
+}

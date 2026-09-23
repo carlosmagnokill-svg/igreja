@@ -333,13 +333,18 @@ async function loadResponsibles() {
 }
 
 function getResponsibleForSelectedGroup() {
-  const selectedGroup = ui.groupFilter.value;
+  const groups = getSelectedValues(ui.groupFilter);
+  const totalGroups = ui.groupFilter.options.length;
 
-  if (!selectedGroup) {
+  if (!groups.length || groups.length === totalGroups) {
     return "Todos os grupos";
   }
 
-  return state.responsiblesByGroup.get(normalizeGroupKey(selectedGroup))
+  if (groups.length > 1) {
+    return "Múltiplos grupos selecionados";
+  }
+
+  return state.responsiblesByGroup.get(normalizeGroupKey(groups[0]))
     || "Não informado";
 }
 
@@ -476,6 +481,7 @@ async function readPdf() {
     }
 
     buildFilters();
+    initializeMultiSelects();
     applyFilters();
     setLoading(false);
   } catch (error) {
@@ -503,8 +509,69 @@ function setError(message) {
   ui.errorMessage.textContent = message;
 }
 
+function getMultiSelectRoot(select) {
+  return document.querySelector(`.multi-select[data-filter="${select.id}"]`);
+}
+
+function getSelectedValues(select) {
+  return Array.from(select.selectedOptions).map((option) => option.value);
+}
+
+function updateMultiSelectLabel(select, allLabel) {
+  const root = getMultiSelectRoot(select);
+  if (!root) return;
+
+  const text = root.querySelector(".multi-select-text");
+  const selectAll = root.querySelector(".select-all");
+  const options = Array.from(select.options);
+  const selected = getSelectedValues(select);
+
+  if (!selected.length || selected.length === options.length) {
+    text.textContent = allLabel;
+  } else if (selected.length === 1) {
+    text.textContent = selected[0];
+  } else {
+    text.textContent = `${selected.length} selecionados`;
+  }
+
+  selectAll.checked = options.length > 0 && selected.length === options.length;
+  selectAll.indeterminate = selected.length > 0 && selected.length < options.length;
+}
+
+function syncMultiSelect(select, allLabel) {
+  const root = getMultiSelectRoot(select);
+  if (!root) return;
+
+  const optionsBox = root.querySelector(".multi-select-options");
+  optionsBox.replaceChildren();
+
+  Array.from(select.options).forEach((option) => {
+    const label = document.createElement("label");
+    label.className = "multi-select-option";
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.value = option.value;
+    checkbox.checked = option.selected;
+
+    const span = document.createElement("span");
+    span.textContent = option.textContent;
+
+    checkbox.addEventListener("change", () => {
+      option.selected = checkbox.checked;
+      updateMultiSelectLabel(select, allLabel);
+      applyFilters();
+    });
+
+    label.append(checkbox, span);
+    optionsBox.appendChild(label);
+  });
+
+  updateMultiSelectLabel(select, allLabel);
+}
+
 function fillSelect(select, values, allLabel) {
-  select.innerHTML = `<option value="">${allLabel}</option>`;
+  select.replaceChildren();
 
   values
     .filter(Boolean)
@@ -513,8 +580,57 @@ function fillSelect(select, values, allLabel) {
       const option = document.createElement("option");
       option.value = value;
       option.textContent = value;
+      option.selected = true;
       select.appendChild(option);
     });
+
+  syncMultiSelect(select, allLabel);
+}
+
+function initializeMultiSelects() {
+  const configs = [
+    [ui.groupFilter, "Todos"],
+    [ui.categoryFilter, "Todas"],
+    [ui.situationFilter, "Todas"],
+  ];
+
+  configs.forEach(([select, allLabel]) => {
+    const root = getMultiSelectRoot(select);
+    if (!root || root.dataset.initialized === "true") return;
+    root.dataset.initialized = "true";
+
+    const trigger = root.querySelector(".multi-select-trigger");
+    const menu = root.querySelector(".multi-select-menu");
+    const selectAll = root.querySelector(".select-all");
+
+    trigger.addEventListener("click", (event) => {
+      event.stopPropagation();
+      document.querySelectorAll(".multi-select-menu").forEach((other) => {
+        if (other !== menu) other.hidden = true;
+      });
+      menu.hidden = !menu.hidden;
+      trigger.setAttribute("aria-expanded", String(!menu.hidden));
+    });
+
+    menu.addEventListener("click", (event) => event.stopPropagation());
+
+    selectAll.addEventListener("change", () => {
+      const checked = selectAll.checked;
+      Array.from(select.options).forEach((option) => option.selected = checked);
+      root.querySelectorAll(".multi-select-options input").forEach((box) => {
+        box.checked = checked;
+      });
+      updateMultiSelectLabel(select, allLabel);
+      applyFilters();
+    });
+  });
+
+  document.addEventListener("click", () => {
+    document.querySelectorAll(".multi-select-menu").forEach((menu) => menu.hidden = true);
+    document.querySelectorAll(".multi-select-trigger").forEach((trigger) => {
+      trigger.setAttribute("aria-expanded", "false");
+    });
+  });
 }
 
 function buildFilters() {
@@ -541,7 +657,10 @@ function buildFilters() {
 }
 
 function updateFitOnePageAvailability() {
-  const hasSelectedGroup = Boolean(ui.groupFilter.value);
+  const selectedGroups = getSelectedValues(ui.groupFilter);
+  const hasSelectedGroup =
+    selectedGroups.length === 1 &&
+    selectedGroups.length < ui.groupFilter.options.length;
 
   ui.fitOnePage.disabled = !hasSelectedGroup;
   ui.fitOnePageLabel.classList.toggle("option-disabled", !hasSelectedGroup);
@@ -556,25 +675,35 @@ function updateFitOnePageAvailability() {
 
 function applyFilters() {
   const search = normalizeText(ui.nameSearch.value);
-  const group = ui.groupFilter.value;
-  const category = ui.categoryFilter.value;
-  const situation = ui.situationFilter.value;
+  const groups = getSelectedValues(ui.groupFilter);
+  const categories = getSelectedValues(ui.categoryFilter);
+  const situations = getSelectedValues(ui.situationFilter);
   const sex = ui.sexFilter.value;
 
   state.filtered = state.members.filter((member) => {
     const matchesName = !search || normalizeText(member.name).includes(search);
-    const matchesGroup = !group || member.group === group;
-    const matchesCategory = !category || member.category === category;
+    const matchesGroup = !groups.length || groups.includes(member.group);
+    const matchesCategory = !categories.length || categories.includes(member.category);
     const matchesSituation =
-      !situation || normalizeText(member.situation) === normalizeText(situation);
+      !situations.length ||
+      situations.some((value) => normalizeText(value) === normalizeText(member.situation));
     const matchesSex = !sex || member.sex === sex;
+
     return matchesName && matchesGroup && matchesCategory && matchesSituation && matchesSex;
   });
 
   renderTable();
-  const groupLabel = group || "todos";
+
+  const totalGroups = ui.groupFilter.options.length;
+  let groupLabel = "todos";
+  if (groups.length === 1) groupLabel = groups[0];
+  else if (groups.length > 1 && groups.length < totalGroups) groupLabel = `${groups.length} grupos`;
+
   ui.activeFilterText.textContent = `Grupo: ${groupLabel}`;
-  ui.printGroup.textContent = group || "Todos";
+  ui.printGroup.textContent = groups.length === 1
+    ? groups[0]
+    : (groups.length === totalGroups ? "Todos" : groups.join(", "));
+
   updateFitOnePageAvailability();
 }
 
@@ -622,9 +751,16 @@ function renderTable() {
 
 function clearFilters() {
   ui.nameSearch.value = "";
-  ui.groupFilter.value = "";
-  ui.categoryFilter.value = "";
-  ui.situationFilter.value = "";
+
+  [
+    [ui.groupFilter, "Todos"],
+    [ui.categoryFilter, "Todas"],
+    [ui.situationFilter, "Todas"],
+  ].forEach(([select, allLabel]) => {
+    Array.from(select.options).forEach((option) => option.selected = true);
+    syncMultiSelect(select, allLabel);
+  });
+
   ui.sexFilter.value = "";
   applyFilters();
   ui.nameSearch.focus();
@@ -636,9 +772,7 @@ ui.nameSearch.addEventListener("input", () => {
   searchTimer = setTimeout(applyFilters, 160);
 });
 
-[ui.groupFilter, ui.categoryFilter, ui.situationFilter, ui.sexFilter].forEach((select) => {
-  select.addEventListener("change", applyFilters);
-});
+ui.sexFilter.addEventListener("change", applyFilters);
 
 ui.clearFilters.addEventListener("click", clearFilters);
 ui.reloadButton.addEventListener("click", readPdf);
@@ -747,8 +881,10 @@ async function savePdfReport() {
   }
 
   const includeSummary = Boolean(ui.includeSummary?.checked);
+  const selectedGroupsForPdf = getSelectedValues(ui.groupFilter);
   const fitOnePage = Boolean(
-    ui.groupFilter.value &&
+    selectedGroupsForPdf.length === 1 &&
+    selectedGroupsForPdf.length < ui.groupFilter.options.length &&
     ui.fitOnePage &&
     ui.fitOnePage.checked
   );
@@ -766,7 +902,13 @@ async function savePdfReport() {
     hour: "2-digit",
     minute: "2-digit",
   });
-  const selectedGroup = ui.groupFilter.value || "Todos";
+  const allGroupsSelected =
+    selectedGroupsForPdf.length === ui.groupFilter.options.length;
+  const selectedGroup = allGroupsSelected
+    ? "Todos"
+    : (selectedGroupsForPdf.length === 1
+      ? selectedGroupsForPdf[0]
+      : selectedGroupsForPdf.join(", "));
 
   doc.setFont("helvetica", "bold");
   doc.setFontSize(16);

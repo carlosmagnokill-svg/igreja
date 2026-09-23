@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#a90e18">
   <title>Relatório Geral de Membros</title>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <link rel="stylesheet" href="styles.css?v=11.1">
+  <link rel="stylesheet" href="styles.css?v=12.0">
 </head>
 <body>
   <header class="topbar">
@@ -19,7 +19,7 @@
 
     <div class="brand">
       <img src="logo_ICM_BRANCO.png" alt="Logomarca ICM">
-      <span class="version">Versão 11.1</span>
+      <span class="version">Versão 12.0</span>
     </div>
   </header>
 
@@ -61,26 +61,59 @@
           <input id="nameSearch" type="search" placeholder="Digite parte do nome..." autocomplete="off">
         </label>
 
-        <label>
+        <div class="filter-field">
           <span>Grupo</span>
-          <select id="groupFilter">
-            <option value="">Todos</option>
-          </select>
-        </label>
+          <div class="multi-select" data-filter="groupFilter">
+            <button class="multi-select-trigger" type="button" aria-expanded="false">
+              <span class="multi-select-text">Todos</span>
+              <span class="multi-select-arrow">⌄</span>
+            </button>
+            <div class="multi-select-menu" hidden>
+              <label class="multi-select-all">
+                <input type="checkbox" class="select-all">
+                <span>Selecionar tudo</span>
+              </label>
+              <div class="multi-select-options"></div>
+            </div>
+          </div>
+          <select id="groupFilter" hidden multiple></select>
+        </div>
 
-        <label>
+        <div class="filter-field">
           <span>Categoria</span>
-          <select id="categoryFilter">
-            <option value="">Todas</option>
-          </select>
-        </label>
+          <div class="multi-select" data-filter="categoryFilter">
+            <button class="multi-select-trigger" type="button" aria-expanded="false">
+              <span class="multi-select-text">Todas</span>
+              <span class="multi-select-arrow">⌄</span>
+            </button>
+            <div class="multi-select-menu" hidden>
+              <label class="multi-select-all">
+                <input type="checkbox" class="select-all">
+                <span>Selecionar tudo</span>
+              </label>
+              <div class="multi-select-options"></div>
+            </div>
+          </div>
+          <select id="categoryFilter" hidden multiple></select>
+        </div>
 
-        <label>
+        <div class="filter-field">
           <span>Situação</span>
-          <select id="situationFilter">
-            <option value="">Todas</option>
-          </select>
-        </label>
+          <div class="multi-select" data-filter="situationFilter">
+            <button class="multi-select-trigger" type="button" aria-expanded="false">
+              <span class="multi-select-text">Todas</span>
+              <span class="multi-select-arrow">⌄</span>
+            </button>
+            <div class="multi-select-menu" hidden>
+              <label class="multi-select-all">
+                <input type="checkbox" class="select-all">
+                <span>Selecionar tudo</span>
+              </label>
+              <div class="multi-select-options"></div>
+            </div>
+          </div>
+          <select id="situationFilter" hidden multiple></select>
+        </div>
 
         <label>
           <span>Sexo</span>
@@ -150,6 +183,6 @@
   </main>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs" type="module"></script>
-  <script type="module" src="app.js?v=11.1"></script>
+  <script type="module" src="app.js?v=12.0"></script>
 </body>
 </html>
