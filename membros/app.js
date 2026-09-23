@@ -31,6 +31,7 @@ const ui = {
   nameSearch: document.querySelector("#nameSearch"),
   groupFilter: document.querySelector("#groupFilter"),
   categoryFilter: document.querySelector("#categoryFilter"),
+  situationFilter: document.querySelector("#situationFilter"),
   sexFilter: document.querySelector("#sexFilter"),
   clearFilters: document.querySelector("#clearFilters"),
   reloadButton: document.querySelector("#reloadButton"),
@@ -353,6 +354,10 @@ function getCategorySummary(members) {
     adult: 0,
     female: 0,
     male: 0,
+    member: 0,
+    visitor: 0,
+    memberNotBaptized: 0,
+    frequentVisitor: 0,
   };
 
   for (const member of members) {
@@ -382,6 +387,12 @@ function getCategorySummary(members) {
     } else if (category.includes("adulto")) {
       summary.adult += 1;
     }
+
+    const situation = normalizeText(member.situation);
+    if (situation.includes("visitante frequente")) summary.frequentVisitor += 1;
+    else if (situation.includes("membro nao batizado")) summary.memberNotBaptized += 1;
+    else if (situation === "visitante") summary.visitor += 1;
+    else if (situation === "membro") summary.member += 1;
 
     if (sex === "f" || sex.includes("feminino")) summary.female += 1;
     if (sex === "m" || sex.includes("masculino")) summary.male += 1;
@@ -598,6 +609,7 @@ function clearFilters() {
   ui.nameSearch.value = "";
   ui.groupFilter.value = "";
   ui.categoryFilter.value = "";
+  ui.situationFilter.value = "";
   ui.sexFilter.value = "";
   applyFilters();
   ui.nameSearch.focus();
@@ -884,6 +896,10 @@ async function savePdfReport() {
       ["Qtd. de Adultos:", summary.adult],
       ["Quantidade Feminino:", summary.female],
       ["Quantidade Masculino:", summary.male],
+      ["Qtd. Membros:", summary.member],
+      ["Qtd. Visitantes:", summary.visitor],
+      ["Qtd. Membros não Batizados:", summary.memberNotBaptized],
+      ["Qtd. Visitantes Frequentes:", summary.frequentVisitor],
     ],
     styles: {
       font: "helvetica",

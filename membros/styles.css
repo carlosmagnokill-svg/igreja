@@ -538,3 +538,14 @@ thead th:nth-child(6), tbody td:nth-child(6) { width: 8%; text-align: center; }
     white-space: normal;
   }
 }
+
+/* V11 — filtro adicional Situação */
+.filters { grid-template-columns: minmax(220px,1.7fr) repeat(4,minmax(120px,1fr)); }
+@media (max-width:980px) {
+  .filters { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .filters label:first-child { grid-column:1/-1; }
+}
+@media (max-width:620px) {
+  .filters { grid-template-columns:1fr; }
+  .filters label:first-child { grid-column:auto; }
+}
