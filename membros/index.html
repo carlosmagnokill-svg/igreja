@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#a90e18">
   <title>Relatório Geral de Membros</title>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=11.1">
 </head>
 <body>
   <header class="topbar">
@@ -19,7 +19,7 @@
 
     <div class="brand">
       <img src="logo_ICM_BRANCO.png" alt="Logomarca ICM">
-      <span class="version">Versão 1.0</span>
+      <span class="version">Versão 11.1</span>
     </div>
   </header>
 
@@ -71,6 +71,13 @@
         <label>
           <span>Categoria</span>
           <select id="categoryFilter">
+            <option value="">Todas</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Situação</span>
+          <select id="situationFilter">
             <option value="">Todas</option>
           </select>
         </label>
@@ -143,6 +150,6 @@
   </main>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs" type="module"></script>
-  <script type="module" src="app.js"></script>
+  <script type="module" src="app.js?v=11.1"></script>
 </body>
 </html>

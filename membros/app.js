@@ -389,10 +389,17 @@ function getCategorySummary(members) {
     }
 
     const situation = normalizeText(member.situation);
-    if (situation.includes("visitante frequente")) summary.frequentVisitor += 1;
-    else if (situation.includes("membro nao batizado")) summary.memberNotBaptized += 1;
-    else if (situation === "visitante") summary.visitor += 1;
-    else if (situation === "membro") summary.member += 1;
+
+    // Ordem do mais específico para o mais genérico evita dupla contagem.
+    if (situation.includes("visitante frequente")) {
+      summary.frequentVisitor += 1;
+    } else if (situation.includes("membro nao batizado")) {
+      summary.memberNotBaptized += 1;
+    } else if (situation === "visitante") {
+      summary.visitor += 1;
+    } else if (situation === "membro") {
+      summary.member += 1;
+    }
 
     if (sex === "f" || sex.includes("feminino")) summary.female += 1;
     if (sex === "m" || sex.includes("masculino")) summary.male += 1;
@@ -522,6 +529,11 @@ function buildFilters() {
     "Todas"
   );
   fillSelect(
+    ui.situationFilter,
+    [...new Set(state.members.map((member) => cleanText(member.situation)))],
+    "Todas"
+  );
+  fillSelect(
     ui.sexFilter,
     [...new Set(state.members.map((member) => member.sex))],
     "Todos"
@@ -546,14 +558,17 @@ function applyFilters() {
   const search = normalizeText(ui.nameSearch.value);
   const group = ui.groupFilter.value;
   const category = ui.categoryFilter.value;
+  const situation = ui.situationFilter.value;
   const sex = ui.sexFilter.value;
 
   state.filtered = state.members.filter((member) => {
     const matchesName = !search || normalizeText(member.name).includes(search);
     const matchesGroup = !group || member.group === group;
     const matchesCategory = !category || member.category === category;
+    const matchesSituation =
+      !situation || normalizeText(member.situation) === normalizeText(situation);
     const matchesSex = !sex || member.sex === sex;
-    return matchesName && matchesGroup && matchesCategory && matchesSex;
+    return matchesName && matchesGroup && matchesCategory && matchesSituation && matchesSex;
   });
 
   renderTable();
@@ -621,7 +636,7 @@ ui.nameSearch.addEventListener("input", () => {
   searchTimer = setTimeout(applyFilters, 160);
 });
 
-[ui.groupFilter, ui.categoryFilter, ui.sexFilter].forEach((select) => {
+[ui.groupFilter, ui.categoryFilter, ui.situationFilter, ui.sexFilter].forEach((select) => {
   select.addEventListener("change", applyFilters);
 });
 
