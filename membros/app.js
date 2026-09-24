@@ -580,7 +580,7 @@ function fillSelect(select, values, allLabel) {
       const option = document.createElement("option");
       option.value = value;
       option.textContent = value;
-      option.selected = true;
+      option.selected = false;
       select.appendChild(option);
     });
 
@@ -757,7 +757,7 @@ function clearFilters() {
     [ui.categoryFilter, "Todas"],
     [ui.situationFilter, "Todas"],
   ].forEach(([select, allLabel]) => {
-    Array.from(select.options).forEach((option) => option.selected = true);
+    Array.from(select.options).forEach((option) => option.selected = false);
     syncMultiSelect(select, allLabel);
   });
 

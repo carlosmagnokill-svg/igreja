@@ -676,3 +676,21 @@ thead th:nth-child(6), tbody td:nth-child(6) { width: 8%; text-align: center; }
     width: 100%;
   }
 }
+
+/* V12.1 — Limpar filtros compacto e amarelo */
+#clearFilters.secondary-button {
+  min-height: 32px;
+  height: auto;
+  align-self: center;
+  padding: 6px 12px;
+  border: 1px solid #d89f00;
+  border-radius: 8px;
+  color: #14213b;
+  background: var(--yellow);
+  font-size: .78rem;
+  font-weight: 800;
+  line-height: 1.15;
+  box-shadow: none;
+}
+#clearFilters.secondary-button:hover { filter: brightness(.96); }
+#clearFilters.secondary-button:active { transform: translateY(1px); }
