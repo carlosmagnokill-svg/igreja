@@ -654,6 +654,13 @@ function buildFilters() {
     [...new Set(state.members.map((member) => member.sex))],
     "Todos"
   );
+
+  // Sexo é seleção simples: restaura explicitamente a opção "Todos".
+  const sexAllOption = document.createElement("option");
+  sexAllOption.value = "";
+  sexAllOption.textContent = "Todos";
+  sexAllOption.selected = true;
+  ui.sexFilter.prepend(sexAllOption);
 }
 
 function updateFitOnePageAvailability() {
